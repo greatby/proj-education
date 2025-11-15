@@ -1,39 +1,85 @@
 import "./globals.css";
+import { FaBars, FaTimes } from "react-icons/fa";
 
 export const metadata = {
   title: "EduPath India – Find Your Perfect Course & College",
   description:
     "Discover top colleges, compare courses, explore career paths, and make informed education decisions across India.",
 };
+function MobileMenu() {
+  return (
+    <div className="md:hidden">
+      <input
+        type="checkbox"
+        id="nav-toggle"
+        className="peer hidden"
+      />
 
+      {/* Hamburger Icon */}
+      <label htmlFor="nav-toggle">
+        <FaBars className="text-2xl cursor-pointer" />
+      </label>
+
+      {/* Overlay */}
+      <label
+        htmlFor="nav-toggle"
+        className="fixed inset-0 bg-black/40 opacity-0 peer-checked:opacity-100 pointer-events-none peer-checked:pointer-events-auto transition-opacity"
+      ></label>
+
+      {/* Slide Drawer */}
+      <nav
+        className="fixed top-0 left-0 h-full w-72 bg-white text-gray-900 shadow-xl 
+        -translate-x-full peer-checked:translate-x-0 transition-transform z-50"
+      >
+        <div className="flex items-center justify-between p-5 border-b">
+          <span className="text-lg font-semibold">Menu</span>
+          <label htmlFor="nav-toggle">
+            <FaTimes className="text-xl cursor-pointer" />
+          </label>
+        </div>
+
+        <ul className="flex flex-col p-6 text-base font-medium space-y-6">
+          <li><a href="/features" className="hover:text-indigo-600">Features</a></li>
+          <li><a href="/find-colleges" className="hover:text-indigo-600">Find Colleges</a></li>
+          <li><a href="/categories" className="hover:text-indigo-600">Categories</a></li>
+          <li><a href="/contact" className="hover:text-indigo-600">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  );
+}
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className="antialiased bg-gray-50">
 
         {/* NAVBAR */}
-        <header className="fixed top-0 w-full z-50 bg-linear-to-r from-indigo-600 to-purple-600 shadow-lg">
-          <nav className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-            <a href="/" className="text-white font-bold text-2xl">
-              🎓 EduPath India
-            </a>
+        <header className="fixed top-0 left-0 w-full bg-linear-to-r from-indigo-600 to-purple-600 text-white shadow-lg z-50">
+      <div className="max-w-7xl mx-auto flex items-center justify-between px-6 h-16">
 
-            <ul className="hidden md:flex gap-8 text-white font-medium">
-              <li>
-                <a href="/features" className="hover:opacity-80">Features</a>
-              </li>
-              <li>
-                <a href="/find-colleges" className="hover:opacity-80">Find Colleges</a>
-              </li>
-              <li>
-                <a href="/categories" className="hover:opacity-80">Categories</a>
-              </li>
-              <li>
-                <a href="/contact" className="hover:opacity-80">Contact</a>
-              </li>
-            </ul>
-          </nav>
-        </header>
+        {/* Logo */}
+        <a href="/" className="text-xl font-bold tracking-wide">
+          🎓 EduPath India
+        </a>
+
+        {/* Desktop Menu */}
+        <nav className="hidden md:flex items-center gap-8 text-sm font-medium">
+          <a href="/features" className="hover:text-indigo-200 transition">Features</a>
+          <a href="/find-colleges" className="hover:text-indigo-200 transition">Find Colleges</a>
+          <a href="/categories" className="hover:text-indigo-200 transition">Categories</a>
+          <a href="/contact" className="hover:text-indigo-200 transition">Contact</a>
+        </nav>
+
+        {/* Mobile Hamburger */}
+        <MobileMenu />
+      </div>
+    </header>
+
+
+
+
+
+
 
         {/* PAGE CONTENT */}
         <div className="pt-24">{children}</div>
