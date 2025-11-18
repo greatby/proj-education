@@ -119,8 +119,8 @@ export default function RootLayout({ children }) {
             <div>
               <h3 className="text-lg font-semibold text-indigo-400 mb-4">Contact</h3>
               <ul className="space-y-2">
-                <li>Email: info@edupathindia.com</li>
-                <li>Phone: +91 9876543210</li>
+                <li>Email: hello@epfdesk.com</li>
+                <li>Phone: +919945933333</li>
                 <li>Bangalore, India</li>
               </ul>
             </div>
