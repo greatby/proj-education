@@ -121,7 +121,7 @@ export default function RootLayout({ children }) {
               <ul className="space-y-2">
                 <li>Email: hello@epfdesk.com</li>
                 <li>Phone: +919945933333</li>
-                <li>Bangalore, India</li>
+                <li>62/63 Church Street, Bengaluru, Karnataka, 560001</li>
               </ul>
             </div>
 
