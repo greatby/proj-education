@@ -15,7 +15,7 @@ export const metadata = {
 
 export default function Home() {
   return (
-    <main className="pt-24">
+    <main className="">
       {/* JSON-LD */}
       <script
         type="application/ld+json"
